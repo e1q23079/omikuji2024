@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <title>おみくじ</title>
+  </head>
+  <body>
+    <B><h2><center>おみくじ2024</center></h2></B>
+    <center>下のボタンを押して，おみくじを引きましょう．</center>
+    <br/>
+    <center><button id="btn1" type="button" value="スタート" onclick="push_button();" style="font-size:20px; width:300px;height:40px"/>おみくじを引く</button></center>
+    <B><h2><center><div id="text6"></div></center></h2></B>
+    <B><h2><center><div id="text4"></div></center></h2></B>
+    <B><h1><center><div id="text"></div></center></h1></B>
+    <B><center><div id="text5"></div></center></B>
+    <center><div id="text3"></div></center>
+    
+    
+    <script>
+      var flag=0;
+      let nickname;
+      var kazu=6;
+      const hantei =["Nodata","当たり","大吉","大大吉","いい天気で賞","明けましたで賞","2024年で賞"];
+      const syosai=["Nodata","当たりです．おめでとうございます！！","今年もいいことがたくさんあるでしょう！","今年もすごくいいことがたくさんあるでしょう！","今日はいい天気でしょう？違う？","おめでとうございます！！","今年は2024年です"];
+      nickname = prompt("ニックネームを入力してください．");
+    
+      function push_button(){
+        if(flag==0){
+          const btn=document.getElementById("btn1");
+          btn.textContent="おみくじを引きました";
+          var text6=document.getElementById("text6");
+          text6.innerHTML=nickname+"さんの結果は・・・</br>";
+          var day = new Date();
+          var text3=document.getElementById("text3");
+          randam = Math.floor(Math.random()*(kazu)+1);
+          var text4=document.getElementById("text");
+          text4.innerHTML=hantei[randam];
+          var text5=document.getElementById("text5");
+          text5.innerHTML="解説："+syosai[randam];
+          text3.innerHTML="Processing Number:"+Math.floor(day);
+          flag=1;
+
+        }
+        
+        }
+    </script>
+  </body>
+</html>
